@@ -1,3 +1,6 @@
+MAGENTO APPLICATION SERVER SETUP PROCESS
+========================================
+
 1) Initialize Server on Rackspace
 	- save or write down password
 	- save IP address
@@ -34,7 +37,7 @@
 		nano [sitename] 
 
 
-	edit file:
+	file contents (roughly):
 
     #
     #  TEST PHP SETUP
