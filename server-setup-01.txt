@@ -1,2 +1,28 @@
 1) Initialize Server on Rackspace
+	- save or write down password
+	- save IP address
+
 2) Login to server via Root with Putty
+	
+
+3) run the following installation commands
+
+	[sudo] apt-get update
+	[sudo] apt-get -y upgrade
+
+	** NGINX **
+	[sudo] apt-get -y install nginx 
+
+	** PHP Setup **
+	[sudo] apt-get -y install php5 php5-cli php5-cgi spawn-fcgi php5-mysql php5-mcrypt php5-curl php5-gd php5-fpm openssl
+
+	** (Optional) MYSQL Client **
+	[sudo] apt-get -y install mysql-client
+	
+4) Test the Database Connection to the Database Cloud with the following command:
+
+	mysql -u test -h d91d0b8164b35f211c3484a2b3194088f1b10454.rackspaceclouddb.com -p
+	
+	** Additional Help : http://www.cyberciti.biz/faq/how-do-i-access-mysql-server-from-the-shell-prompt-command-line/
+
+
