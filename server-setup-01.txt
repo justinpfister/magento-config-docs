@@ -1,0 +1,2 @@
+1) Initialize Server on Rackspace
+2) Login to server via Root with Putty
