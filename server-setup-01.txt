@@ -63,7 +63,10 @@ MAGENTO APPLICATION SERVER SETUP PROCESS
 
     }
 
-
+6) setup phpmyadmin.
+	[sudo] apt-get install phpmyadmin
+		don't choose a database to configure [hit excape]
+		db_config [choose no]
 
 REFERENCE URLS:
 http://alanhollis.com/magento-getting-started-with-magento-and-nginx-on-ubuntu/
