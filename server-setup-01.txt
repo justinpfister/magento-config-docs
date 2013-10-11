@@ -65,3 +65,6 @@ MAGENTO APPLICATION SERVER SETUP PROCESS
 
 
 
+REFERENCE URLS:
+http://alanhollis.com/magento-getting-started-with-magento-and-nginx-on-ubuntu/
+http://davidtsadler.com/archives/2012/06/03/how-to-install-magento-on-ubuntu/#php
