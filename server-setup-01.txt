@@ -1,6 +1,7 @@
 1) Initialize Server on Rackspace
 	- save or write down password
 	- save IP address
+	- (optional) Modify the Domain DNS to point to that IP
 
 2) Login to server via Root with Putty
 	
@@ -24,5 +25,40 @@
 	mysql -u test -h d91d0b8164b35f211c3484a2b3194088f1b10454.rackspaceclouddb.com -p
 	
 	** Additional Help : http://www.cyberciti.biz/faq/how-do-i-access-mysql-server-from-the-shell-prompt-command-line/
+
+5) NGINX - Configure Website in /etc/nginx/sites-available
+	
+	deactivate default site:
+		rm /etc/nginx/sites-enabled/default
+	create a new site config file : 
+		nano [sitename] 
+
+
+	edit file:
+
+    #
+    #  TEST PHP SETUP
+    #
+
+    server {
+        listen 80;
+        server_name phptest.techmaid.com;
+        root /var/www/test-php;
+
+        index index.php;
+
+      location ~ \.php$ {
+            fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+            fastcgi_pass unix:/var/run/php5-fpm.sock;
+            fastcgi_index index.php;
+            include fastcgi_params;
+    }
+
+        location ~ /\.ht {
+            deny all;
+        }
+
+    }
+
 
 
