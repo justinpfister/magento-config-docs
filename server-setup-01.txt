@@ -44,7 +44,6 @@ MAGENTO APPLICATION SERVER SETUP PROCESS
     #
 
     server {
-        listen 80;
         server_name phptest.techmaid.com;
         root /var/www/test-php;
 
@@ -64,9 +63,31 @@ MAGENTO APPLICATION SERVER SETUP PROCESS
     }
 
 6) setup phpmyadmin.
-	[sudo] apt-get install phpmyadmin
-		don't choose a database to configure [hit excape]
-		db_config [choose no]
+	wget http://sourceforge.net/projects/phpmyadmin/files/phpMyAdmin/4.0.8/phpMyAdmin-4.0.8-english.tar.bz2
+	tar -jxf phpMyAdmin-4.0.3-all-languages.tar.bz2 -C /var/www
+	mv phpMyAdmin-4.0.3-all-languages phpmyadmin
+	rm -rf phpMyAdmin-4.0.3-all-languages.tar.bz2
+        
+	#  phpmyadmin setup
+
+	server {
+        server_name mysql.techmaid.com;
+        root        /var/www/phpmyadmin;
+        index   index.php;
+
+         location ~ \.php$ {
+                 try_files      $uri =404;
+                 fastcgi_pass   unix:/var/run/php5-fpm.sock;
+                 fastcgi_index  index.php;
+                 include        /etc/nginx/fastcgi_params;
+         }
+	 }
+
+	edit /var/www/phpmyadmin/config.inc.php
+		set database host : d91d0b8164b35f211c3484a2b3194088f1b10454.rackspaceclouddb.com
+
+	REFERENCE:	http://superuser.com/questions/291230/how-to-install-phpmyadmin-on-linux-ec2-instance
+
 
 REFERENCE URLS:
 http://alanhollis.com/magento-getting-started-with-magento-and-nginx-on-ubuntu/
